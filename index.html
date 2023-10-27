@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: black; /* Set the background to black */
+    animation: backgroundSlide 20s linear infinite;
+  }
+
+  @keyframes backgroundSlide {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  .title {
+    font-size: 36px;
+    color: #FF5733;
+    text-shadow: 2px 2px 4px #FFC300;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+
+  .tab-buttons {
+    background: linear-gradient(to right, #444, #ff2f00); /* Dark gray to red gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tab-button {
+    background: linear-gradient(to right, #333, #ff2f00); /* Dark gray to red gradient */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s;
+    font-weight: bold;
+  }
+
+  .tab-button:hover {
+    background: linear-gradient(to right, #333, #ff2f00); /* Dark gray to red gradient */
+  }
+
+  /* Tab Content Styles */
+  .tab {
+    display: none;
+    background: linear-gradient(to right, #444, #ff2f00); /* Dark gray to red gradient */
+    padding: 20px;
+    border: 2px solid #FF5733;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    overflow: auto;
+    font-weight: bold;
+  }
+
+  .tab.active {
+    display: block;
+  }
+
+  /* Homepage, About, Training, Contact, and Login Page Styles */
+  .home {
+    background: linear-gradient(to right, #444, #ff0000); /* Dark gray to red gradient */
+  }
+
+  #about {
+    background: linear-gradient(to right, #444, #ff0000); /* Dark gray to red gradient */
+  }
+
+  #training {
+    background: linear-gradient(to right, #444, #ff0000); /* Dark gray to red gradient */
+  }
+
+  #contact {
+    background: linear-gradient(to right, #444, #ff0000); /* Dark gray to red gradient */
+  }
+
+  .login-container {
+    background: linear-gradient(to right, #444, #f2f2f2); /* Dark gray to light gray gradient */
+  }
+
+  .login-button {
+    background: linear-gradient(to right, #444, #db3434); /* Dark gray to red gradient */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+  }
+
+  .login-button:hover {
+    background: linear-gradient(to right, #444, #ff1e1e); /* Dark gray to red gradient */
+  }
+</style>
+</head>
+<body>
+  <h1 class="title">AcePong Elite Training Center</h1>
+
+  <!-- Tab Buttons -->
+  <div class="tab-buttons">
+    <button class="tab-button" onclick="openTab('home')">Home</button>
+    <button class="tab-button" onclick="openTab('about')">About</button>
+    <button class="tab-button" onclick="openTab('training')">Training</button>
+    <button class="tab-button" onclick="openTab('contact')">Contact</button>
+    <button class="tab-button" onclick="openTab('login')">Login</button>
+  </div>
+ 
+  <!-- Homepage -->
+  <div id="home" class="tab home active">
+    <div class="tab-content">
+      <h2>Welcome to Our Table Tennis Academy</h2>
+      <p>🏓 Ready to serve up some excitement? Join our premier Table Tennis Academy and become part of a winning team! 🥇</p>
+      <p>Our mission is to provide top-notch training, nurture the next generation of champions, and foster a love for the sport among all enthusiasts. 🏆</p>
+      <p>Why choose us?</p>
+      <ul>
+        <li>🔥 Expert Coaches</li>
+        <li>🏅 State-of-the-Art Facilities</li>
+        <li>🌟 Personalized Training</li>
+        <li>🏆 Championship Opportunities</li>
+      </ul>
+    </div>
+  </div>
+ 
+  <!-- About Page -->
+  <div id="about" class="tab">
+    <div class "tab-content">
+      <h2>About Us</h2>
+      <p>Our academy is a center of excellence for table tennis enthusiasts. With dedicated coaches, state-of-the-art facilities, and a passion for the sport, we are committed to your success.</p>
+    </div>
+  </div>
+
+  <!-- Training Page -->
+  <div id="training" class="tab">
+    <div class="tab-content">
+      <h2>Training Programs</h2>
+      <p>Our comprehensive training programs cater to players of all skill levels. We provide personalized coaching to help you improve your technique, strategy, and fitness for a winning game.</p>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contact" class="tab">
+    <div class="tab-content">
+      <h2>Contact Us</h2>
+      <p>If you have questions or need information, please contact us at example@example.com or call (123) 456-7890. Our team is here to assist you with any inquiries.</p>
+    </div>
+  </div>
+
+  <!-- Login Page -->
+  <div id="login" class="tab login-container">
+    <div class="tab-content">
+      <h2>Login</h2>
+      <form>
+        <label for "username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for "password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button class="login-button" onclick="checkLogin()">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      var tabs = document.getElementsByClassName("tab");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+    }
+
+    function checkLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "123" && password === "acePong") {
+        alert("Login successful!");
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>
